@@ -1,21 +1,14 @@
 # SettingBoundaries
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `setting_boundaries` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:setting_boundaries, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/setting_boundaries>.
-
+* What is allowed by default?
+  * everything in your own boundary
+* What can i depend on
+  * Parent
+  * siblings 
+  * dependencies of ancestors: you actually inherit these automatically unless you use `strict` mode!
+  * NOT on a subboundary, but you are implicitly allowed to use your subboundaries exports!
+  * ESPECIALLY NOT on a sub-sub-boundary
+* What can i export
+  * Everything in my own domain
+  * exported stuff from my subdomains
+  * NOT stuff from sub-sub-domains unless the subdomain in between reexports it!
